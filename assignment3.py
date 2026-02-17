@@ -51,31 +51,26 @@ def main(url):
     print(f"Image requests account for {percentage_wise}% of all requests")
 
     #processing the browser hits
-    Firefox = 0
-    Chrome = 0
-    Internet_explorer = 0
-    Safari = 0
+    browser= {
+            "Firefox":0,
+            "Chrome":0,
+            "Internet Explorer":0,
+            "Safari":0, }
+
     User_agent = row[2]
 
 
     if re.search(r"Firefox", User_agent):
-        Firefox +=1
+        browser["Firefox"] += 1
     elif re.search(r"Chrome", User_agent):
-        Chrome +=1
+        browser["Chrome"] += 1
     elif re.search(r"Internet Explorer", User_agent):
-        Internet_explorer +=1
+        browser["Internet Explorer"] += 1
     elif re.search(r"Safari", User_agent):
-        Safari +=1
+        browser["Safari"] += 1
 
-    browser= {
-        "Firefox": Firefox,
-        "Chrome": Chrome,
-        "Internet Explorer": Internet_explorer,
-        "Safari": Safari,
-    }
-
-    popular_browser= max(browser, key=browser.get)
-    print(f"The most popular browser is {popular_browser} ")
+    browser= max(browser, key=browser.get)
+    print(f"The most popular browser is {browser} ")
 
 
 
