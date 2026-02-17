@@ -55,7 +55,7 @@ def main(url):
     Chrome = 0
     Internet_explorer = 0
     Safari = 0
-    User_agent = str(row[2])
+    User_agent = row[2]
 
 
     if re.search(r"Firefox", User_agent):
