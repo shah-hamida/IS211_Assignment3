@@ -25,7 +25,6 @@ def downloadData(url):
 def main(url):
     print(f"Running main with URL = {url}...")
     results = downloadData(url)
-    url_data = downloadData(url)
 
     csv_data = csv.reader(io.StringIO())
     for row in csv_data:
@@ -36,19 +35,19 @@ def main(url):
         size_bytes = row[4]
 
     #processing the image hits
-    image= 0
-    total_images = 0
+    image_file= 0
+    total_file = 0
 
     image_hits = re.compile(r"\.(jpg|gif|png)$")
 
     with open("weblog.csv" , encoding="utf-8") as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
-            total_images += 1
+            total_file += 1
             path_file = row[0]
             if image_hits.search(path_file):
-                image += 1
-    percentage_wise = (image / total_images) * 100
+                image_file += 1
+    percentage_wise = (image_file / total_file) * 100
     print(f"Image requests account for {percentage_wise}% of all requests")
 
     #processing the browser hits
