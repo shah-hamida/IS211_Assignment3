@@ -67,15 +67,14 @@ def main(url):
     elif re.search(r"Safari", User_agent):
         Safari +=1
 
-    # most popular browser
-    most_popular= {
+    browser= {
         "Firefox": Firefox,
         "Chrome": Chrome,
         "Internet Explorer": Internet_explorer,
         "Safari": Safari,
     }
 
-    popular_browser= max(most_popular, key=most_popular.get)
+    popular_browser= max(browser, key=browser.get)
     print(f"The most popular browser is {popular_browser} ")
 
 
